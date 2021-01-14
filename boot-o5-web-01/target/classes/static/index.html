@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/user" method="get">
+    <input type="submit" value="REST-GET"/>
+</form>
+<form action="/user" method="post">
+    <input type="submit" value="REST-POST"/>
+</form>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit"  value="REST-DELETE"/>
+</form>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="submit" value="REST-PUT"/>
+</form>
+
+<a href="/car/1/owner/lisi">路径变量</a>
+
+<form action="/save" method="post">
+    name<input type="text" name="name">
+    sex<input type="text" name="sex">
+    <input type="submit" value="REST-POST"/>
+</form>
+
+<!--
+/cars/{path}?xxx=xxx&aaa=ccc   @RequestParam
+/cars/sell;low=34;brand=byd,audi,yd  矩阵变量
+/cars/sell;low=34;brand=byd;brand=audi;brand=yd
+如页面开发，cookie被禁用了，session里面的内容如何使用？
+session.set(a,c)->jessionid->cookie->每次发送请求携带
+可以通过url重写：/abc;jessionid=xxx 把cookie的值使用矩阵变量的方式进行传递
+-->
+
+<a href="/car/sell;low=34;brand=byd,audi,yd">矩阵变量</a><br>
+<a href="/boss/1;age=10/2;age=20">矩阵变量</a><br>
+
+<form action="/saveuser" method="post">
+    姓名： <input name="userName" value="zhangsan"/> <br/>
+    年龄： <input name="age" value="18"/> <br/>
+    生日： <input name="birth" value="2020/1/10"/> <br/>
+<!--    宠物姓名：<input name="pet.name" value="啊猫"/><br/>
+    宠物年龄：<input name="pet.age" value="5"/>-->
+    宠物：<input name="pet" value="啊猫,3"/><br/>
+    <input type="submit" value="保存">
+</form>
+
+
+</body>
+</html>

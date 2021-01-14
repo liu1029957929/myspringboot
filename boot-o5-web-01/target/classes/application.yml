@@ -1,0 +1,11 @@
+#spring:
+#mvc:
+#    static-path-pattern: /res/**
+
+#  resources:
+ #   static-locations: [classpath:/haha/]
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true   #开启页面表单的Rest功能
